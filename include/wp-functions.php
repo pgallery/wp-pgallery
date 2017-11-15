@@ -16,7 +16,7 @@ function pgallery_deactivation() {
     delete_option('pgallery_image_style');
 }
 
-function pgallery_albums_shortcode() {
+function pgallery_gallery_shortcode() {
     
     $run = pgallery_execute('gallery');
     
@@ -53,11 +53,13 @@ function pgallery_album_shortcode($atts) {
         
         $pgallery_title_style = get_option('pgallery_title_style');
         $pgallery_image_style = get_option('pgallery_image_style');
-
+        
+        $result = '<div class="thumb-rows">';
+        
         $title = str_replace("%URL%", $run['data']['url'], $pgallery_title_style);
         $title = str_replace("%NAME%", $run['data']['name'], $title);
 
-        $result = $title;
+        $result .= $title;
         
         foreach ($run['list'] as $image) {
             
@@ -66,6 +68,8 @@ function pgallery_album_shortcode($atts) {
 
             $result .= $img;
         }
+        
+        $result .= '</div>';
         
         return $result;
         

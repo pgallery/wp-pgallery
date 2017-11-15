@@ -22,7 +22,7 @@ add_action('wp_footer','pgallery_fancybox_js');
 
 if (function_exists ('add_shortcode') ) {
 
-    add_shortcode('PGALLERY-ALBUMS', 'pgallery_albums_shortcode');
+    add_shortcode('PGALLERY-GALLERY', 'pgallery_gallery_shortcode');
     add_shortcode('PGALLERY-ALBUM', 'pgallery_album_shortcode');
     add_shortcode('PGALLERY-IMAGE', 'pgallery_image_shortcode');
 
@@ -35,7 +35,11 @@ wp_enqueue_script('jquery.fancybox.js',
         'in_footer');
 
 wp_enqueue_style('jquery.fancybox.css', 
-        plugins_url( 'fancybox/jquery.fancybox.css', __FILE__ ));
+        plugins_url( 'fancybox/jquery.fancybox.css', __FILE__ ),
+        null,
+        '3.2.1');
 
 wp_enqueue_style('fancybox.thumb.css', 
-        plugins_url( 'fancybox/fancybox.thumb.css', __FILE__ ));
+        plugins_url( 'fancybox/fancybox.thumb.css', __FILE__ ),
+        array('jquery.fancybox.css'),
+        '0.3');

@@ -16,3 +16,9 @@
   width:30%;
   float:left;
 }
+
+.thumb-rows { 
+  width:100%;
+  float:center;
+  clear: both;
+}
